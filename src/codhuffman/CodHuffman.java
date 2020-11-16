@@ -29,34 +29,35 @@ public class CodHuffman {
     private String resultado;
     private Lista camino;
     static String mandar;
-    
+
     public String getMensaje() {
         return mensaje;
     }
-    
+
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    
+
     public CodHuffman(String msg) {
         mensaje = msg;
         camino = new Lista();
         resultado = "";
+        mandar = "";
     }
 
     public CodHuffman() {
-        
+
     }
-    
+
     public Lista ToNodos() {
         Lista l = new Lista();
         for (int i = 0; i < mensaje.length(); i++) {
             l.insertarFinal((mensaje.charAt(i)));
         }
         return l;
-        
+
     }
-    
+
     public ListaArboles cuentaLetras(Lista l) {
         ListaArboles la = new ListaArboles();
         Nodo aux = l.getInicio();
@@ -69,7 +70,7 @@ public class CodHuffman {
         }
         return la;
     }
-    
+
     public NodoArbolB uneNodos(NodoListaArbolB a, NodoListaArbolB b) {
         NodoArbolB c = new NodoArbolB('\u0000',
                 ((a.getDato().getRaiz().getDato()) + (b.getDato().getRaiz()
@@ -78,7 +79,7 @@ public class CodHuffman {
         c.setDer(b.getDato().getRaiz());
         return c;
     }
-    
+
     public ListaArboles juntaNodo(ListaArboles l) {
         NodoListaArbolB aux = l.getInicio();
         NodoListaArbolB aux2 = null;
@@ -100,7 +101,7 @@ public class CodHuffman {
         // System.out.println("letra: "+l.getInicio().getDato().getRaiz().getLetra());
         return l;
     }
-    
+
     public void recorrer2(Lista l) {
         Nodo n = l.getInicio();
         while (n != null) {
@@ -108,7 +109,7 @@ public class CodHuffman {
             n = n.getSiguiente();
         }
     }
-    
+
     public String eliminarUltimo(String re) {
         String cadena = "";
         for (int i = 0; i < re.length() - 1; i++) {
@@ -116,7 +117,7 @@ public class CodHuffman {
         }
         return cadena;
     }
-    
+
     public void encuentraCamino(NodoArbolB r, String c) {
         // Lista camino = new Lista();
         resultado += c;
@@ -136,12 +137,12 @@ public class CodHuffman {
             resultado = eliminarUltimo(resultado);
         }
     }
-    
+
     public Lista regresaCaminos() { // retornamos la lista que contiene los
         // caminos de cada caracter
         return camino;
     }
-    
+
     public String busca(char s, Lista l) {
         String camino = "";
         Nodo aux = l.getInicio();
@@ -153,7 +154,7 @@ public class CodHuffman {
         }
         return camino;
     }
-    
+
     public String convierte(Lista camino) {
         String c = "";
         for (int i = 0; i < mensaje.length(); i++) {
@@ -161,7 +162,7 @@ public class CodHuffman {
         }
         return c;
     }
-    
+
     public char toAscii(String s) {// obtiene un codigo de 8 o menor
         String ascii = "";
         int numero = 0;
@@ -178,7 +179,7 @@ public class CodHuffman {
         }
         return (char) numero;
     }
-    
+
     public String encripta(String codigoHuffman) {
         String bites = "";
         String codigo = "";
@@ -201,31 +202,38 @@ public class CodHuffman {
             c = toAscii(codigoHuffman);
             codigo = codigo + c;
         }
+
+        if (bites.equals("") == false) {
+            c = toAscii(bites);
+            codigo = codigo + c;
+            System.out.println("Bytes restantes: " + bites);
+        }
         mandar = codigo;
         //System.out.println("Codigo Encriptado " + codigo);
         return codigo;
     }
-   public  String convertBinaryStringToString(String string){
-    char[] chars = string.toCharArray();
-    char[] transcoded = new char[(chars.length / 9)+1];
 
-    //for each character (plus one for spacing)
-    for (int j = 0; j < chars.length; j+=9) {
-        int idx = 0;
-        int sum = 0;
+    public String convertBinaryStringToString(String string) {
+        char[] chars = string.toCharArray();
+        char[] transcoded = new char[(chars.length / 9) + 1];
 
-        //for each bit in reverse
-        for (int i = 7; i>= 0; i--) {
-            if (chars[i+j] == '1') {
-                sum += 1 << idx;
+        //for each character (plus one for spacing)
+        for (int j = 0; j < chars.length; j += 9) {
+            int idx = 0;
+            int sum = 0;
+
+            //for each bit in reverse
+            for (int i = 7; i >= 0; i--) {
+                if (chars[i + j] == '1') {
+                    sum += 1 << idx;
+                }
+                idx++;
             }
-            idx++;
+            transcoded[j / 9] = (char) sum;
         }
-        transcoded[j/9] = (char) sum;
+        return new String(transcoded);
     }
-    return new String(transcoded);
-}
-    
+
     public void encripta2(String codigoHuffman) {
         String bites = "";
         String codigo = "";
@@ -243,7 +251,8 @@ public class CodHuffman {
         }
         System.out.println("Codigo Encriptado2 " + codigo);
     }
- //-----------------------------------------------------------------------------   
+    //-----------------------------------------------------------------------------   
+
     public String desencripta() {
 
         //leer archivos
@@ -263,39 +272,38 @@ public class CodHuffman {
 //        System.out.println("BINARIO OTRA VEZ:" + c);
         //
         System.out.println("Descomprimir");
-        System.out.println("Cadena encripatada archivo: "+cadenaEncriptada);
-        System.out.println("diccionario archivo: "+diccionarioo);
+        System.out.println("Cadena encripatada archivo: " + mandar);
+        System.out.println("diccionario archivo: " + diccionarioo);
         //compara binario de cadena con diccionario
-        char auxChar=cadenaEncriptada.charAt(0);
-        String aux="";//auxiliar guarda bit
-        String aux2="";
-        String cadena="";
-        int cont=0;
-        for (int i = 0; i <cadenaEncriptada.length(); i++) {
-            cont=i;
+        char auxChar = cadenaEncriptada.charAt(0);
+        String aux = "";//auxiliar guarda bit
+        String aux2 = "";
+        String cadena = "";
+        int cont = 0;
+        for (int i = 0; i < cadenaEncriptada.length(); i++) {
+            cont = i;
             //char a string
-            aux2=Character.toString(cadenaEncriptada.charAt(i));
+            aux2 = Character.toString(cadenaEncriptada.charAt(i));
             //System.out.println("------------------char de i:"+i+ " "+aux2);
             //System.out.println(aux);
             //
-            if (listaDic.comparar(aux)==false) {
-                aux=aux+Character.toString(cadenaEncriptada.charAt(i));
-              //  System.out.println("es false y aux:"+aux);
-            }
-            else   {
-            cadena=cadena+listaDic.guardar(aux);
-            aux=Character.toString(cadenaEncriptada.charAt(i));
+            if (listaDic.comparar(aux) == false) {
+                aux = aux + Character.toString(cadenaEncriptada.charAt(i));
+                //  System.out.println("es false y aux:"+aux);
+            } else {
+                cadena = cadena + listaDic.guardar(aux);
+                aux = Character.toString(cadenaEncriptada.charAt(i));
                 //System.out.println("AHORA LA CADENA ES:"+cadena);
             }
         }//debe hacer la ultima comparacion que quedo del ciclo 
-        if (listaDic.comparar(aux)==true) {
-            
-                cadena=cadena+listaDic.guardar(aux);
-            }
-        System.out.println("Cadena desencriptada:"+cadena);
-        return cadena; 
+        if (listaDic.comparar(aux) == true) {
+
+            cadena = cadena + listaDic.guardar(aux);
+        }
+        System.out.println("Cadena desencriptada:" + cadena);
+        return cadena;
     }
-    
+
     public String leertxtDICCIONARIO() {
         String textoD = "";
         try {
@@ -314,12 +322,12 @@ public class CodHuffman {
 //        System.out.println("LEIDDDO:" + textoD);
 //        crearDiccionarioDesencriptar(textoD);
     }
-    
+
     public String leertxtCADENA() {
         String textoD = "";
         try {
             RandomAccessFile archivo1 = new RandomAccessFile("cadena.data", "rw");
-            
+
             int longitud2 = archivo1.readByte();
             System.out.println(longitud2);
             byte[] lecturaByte = new byte[longitud2];
@@ -340,13 +348,13 @@ public class CodHuffman {
         //System.out.println("LEIDDDO:" + textoD);
         return textoD;
     }
-    
+
     public void crearTxtCadena(String b) {
-        
+
         String nombreArchivo = "cadena.data";
         try {
             FileOutputStream archivo;
-            
+
             archivo = new FileOutputStream(nombreArchivo);
             archivo.close();
             RandomAccessFile archivo1 = new RandomAccessFile("cadena.data", "rw");
@@ -369,21 +377,40 @@ public class CodHuffman {
 
     public void crearTxtDic(String dic) {
         String nombreArchivo2 = "diccionario.txt";
-        
+
         try {
             FileOutputStream diccionario;
-            
+
             diccionario = new FileOutputStream(nombreArchivo2);
             DataOutputStream escritor = new DataOutputStream(diccionario);
             escritor.write(dic.getBytes());
             diccionario.close();
-            
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CodHuffman.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(CodHuffman.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+    }
+
+    public void crearTxtC(String c) {
+        String nombreArchivo2 = "cadena.txt";
+
+        try {
+            FileOutputStream diccionario;
+
+            diccionario = new FileOutputStream(nombreArchivo2);
+            DataOutputStream escritor = new DataOutputStream(diccionario);
+            escritor.write(c.getBytes());
+            diccionario.close();
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CodHuffman.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CodHuffman.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     public Lista crearDiccionarioDesencriptar(String d) {
@@ -401,21 +428,35 @@ public class CodHuffman {
                         auxLetra = d.charAt(i);
                     } else {
                         auxB = auxB + Character.toString(d.charAt(i));
-                        
+
                     }
                 } else {
                     listaDic.insertarD(auxLetra, auxB);
                     auxB = "";
                 }
-                
+
             }
         }
         //System.out.println("letras:"+auxLetra+" Binario:"+auxB);
         //listaDic.recorrer2();
         return listaDic;
-        
+
     }
-    
+
+    public String porcentajeCompresion() {
+        //1 letra=byte
+        int original = mensaje.length();
+        int nuevo = mandar.length();
+        String porcentaje = "";
+        float por = 100 - (nuevo * 100 / original);
+//        System.out.println("por "+por);
+//        System.out.println(original);
+//        System.out.println(nuevo);
+        porcentaje = String.valueOf(por);
+        return porcentaje;
+
+    }
+
     public static void main(String args[]) throws IOException {
         CodHuffman h = new CodHuffman("papa pelada");
         Lista l = h.ToNodos();
@@ -428,15 +469,15 @@ public class CodHuffman {
         listaCaminos.recorrer2();///dicionario
         String x = h.convierte(listaCaminos);
         System.out.println("Binario" + x);
-        
+
         h.encripta(x);
         String dic = listaCaminos.mandarCadenaDiccionario();
         System.out.println("diccionario guardado:" + dic + "fin");
 //////////////////////////////////// crear archivos
         h.crearTxtCadena(x);
         h.crearTxtDic(dic);
-        
-        System.out.println("Cadena desencriptada: "+h.desencripta());
+
+        System.out.println("Cadena desencriptada: " + h.desencripta());
         //System.out.println("jj:" + h.convertBinaryStringToString(x));
         //char a = h.toAscii("10111011000100010101101111");
     }

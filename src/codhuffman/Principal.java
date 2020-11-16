@@ -5,6 +5,9 @@
  */
 package codhuffman;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ALEJANDRA
@@ -16,6 +19,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        setTitle("CODIFICACIÓN DE HUFFMAN");
     }
 
     /**
@@ -27,69 +31,313 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        lbDescomprimir = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         rCadena = new javax.swing.JTextField();
-        btnComprimir = new javax.swing.JButton();
         lbComp = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lbDiccionario = new javax.swing.JLabel();
-        lbBinario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        lbDescomprimir = new javax.swing.JLabel();
+        btnComprimir = new javax.swing.JButton();
+        lbBinario = new javax.swing.JLabel();
+        lbDiccionario = new javax.swing.JLabel();
+        lbPorcentaje = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lbBytes1 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        lbBytes2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lbtiempo = new javax.swing.JLabel();
+        lbT2 = new javax.swing.JLabel();
+        lbTdes = new javax.swing.JLabel();
+        FONDO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 410));
+        setName("Codificacion Huffman"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(900, 400));
         setResizable(false);
-        setSize(new java.awt.Dimension(600, 500));
+        setSize(new java.awt.Dimension(900, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(rCadena, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 54, 139, -1));
 
-        btnComprimir.setText("Comprimir");
-        btnComprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComprimirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnComprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 96, -1, -1));
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setOpaque(false);
 
-        lbComp.setText("jLabel1");
-        getContentPane().add(lbComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
-
-        jLabel2.setText("%");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
-
-        lbDiccionario.setText("jLabel1");
-        getContentPane().add(lbDiccionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 159, -1, -1));
-
-        lbBinario.setText("jLabel1");
-        getContentPane().add(lbBinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
-
-        jLabel3.setText("Diccionario:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 159, -1, -1));
-
-        jLabel4.setText("Binario:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
-
-        jLabel5.setText("Cadena Ascii:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
-
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Descomprimir");
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
+        lbDescomprimir.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbDescomprimir.setForeground(new java.awt.Color(51, 51, 51));
         lbDescomprimir.setText("jLabel1");
-        getContentPane().add(lbDescomprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+        lbDescomprimir.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("Cadena:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(lbDescomprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jButton1)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDescomprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 300, 280));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.setToolTipText("COMPRIMIR");
+        jPanel1.setName("COMPRIMIR"); // NOI18N
+        jPanel1.setOpaque(false);
+
+        rCadena.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        rCadena.setForeground(new java.awt.Color(51, 51, 51));
+        rCadena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rCadenaActionPerformed(evt);
+            }
+        });
+
+        lbComp.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbComp.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("%:");
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Diccionario:");
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Binario:");
+
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Cadena Ascii:");
+
+        btnComprimir.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        btnComprimir.setForeground(new java.awt.Color(51, 51, 51));
+        btnComprimir.setText("Comprimir");
+        btnComprimir.setBorderPainted(false);
+        btnComprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprimirActionPerformed(evt);
+            }
+        });
+
+        lbBinario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbBinario.setForeground(new java.awt.Color(51, 51, 51));
+
+        lbDiccionario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbDiccionario.setForeground(new java.awt.Color(51, 51, 51));
+        lbDiccionario.setText(".");
+
+        lbPorcentaje.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbPorcentaje.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("Ingrese cadena:");
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Bytes orginal:");
+
+        lbBytes1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbBytes1.setForeground(new java.awt.Color(51, 51, 51));
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setText("Bytes nuevo:");
+
+        lbBytes2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        lbBytes2.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(rCadena, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(btnComprimir))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabel13)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDiccionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbBinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbBytes1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbBytes2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbPorcentaje, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                                    .addComponent(lbComp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 11, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel9)
+                .addGap(6, 6, 6)
+                .addComponent(rCadena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(btnComprimir)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(lbDiccionario))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(lbBinario, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(lbComp, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(lbPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(lbBytes1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(lbBytes2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 500, 280));
+
+        jLabel10.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel10.setText("COMPRIMIR");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+
+        jLabel11.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel11.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("DESCOMPRIMIR");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Tiempo de compresión:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+
+        lbtiempo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbtiempo.setForeground(new java.awt.Color(51, 51, 51));
+        lbtiempo.setText("jLabel1");
+        getContentPane().add(lbtiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, -1, -1));
+
+        lbT2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbT2.setForeground(new java.awt.Color(51, 51, 51));
+        lbT2.setText("Tiempo descompresión:");
+        getContentPane().add(lbT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
+
+        lbTdes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbTdes.setForeground(new java.awt.Color(51, 51, 51));
+        lbTdes.setText("jLabel9");
+        getContentPane().add(lbTdes, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 340, -1, -1));
+
+        FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/codhuffman/imagenes/fondo3.jpg"))); // NOI18N
+        FONDO.setMaximumSize(new java.awt.Dimension(900, 400));
+        FONDO.setMinimumSize(new java.awt.Dimension(900, 400));
+        FONDO.setOpaque(true);
+        FONDO.setPreferredSize(new java.awt.Dimension(900, 400));
+        getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //tiempo
+        long TInicio, TFin;           //Para determinar el tiempo
+        TInicio = System.nanoTime(); //de ejecución
+        //
+        CodHuffman h = new CodHuffman();
+        lbDescomprimir.setText(h.desencripta());
+                //tiempo
+        TFin = System.nanoTime();
+        double dif=(double)(TFin-TInicio)*0.0000000001;
+        System.out.println("tiempo:"+dif);
+        float tiempo = (float)dif;
+        String t="";
+        lbTdes.setText(t.valueOf(tiempo)+" s");
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void btnComprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprimirActionPerformed
         // TODO add your handling code here:
+        //tiempo
+        long TInicio, TFin;           //Para determinar el tiempo
+        TInicio = System.nanoTime(); //de ejecución
+        //
         String cadenaR = rCadena.getText();
         //
         CodHuffman h = new CodHuffman(cadenaR);
@@ -101,23 +349,30 @@ public class Principal extends javax.swing.JFrame {
         listaCaminos.recorrer2();///dicionario RECORRIDO
         String x = h.convierte(listaCaminos);//binario
         System.out.println("Binario" + x);
-        String dic = listaCaminos.mandarCadenaDiccionario();// diccionario como string
-        System.out.println("dic"+dic);
+        String dic = listaCaminos.mandarCadenaDiccionario();// diccionario como string PARA ARCHIVO
+        System.out.println("dic" + dic);
         lbComp.setText(h.encripta(x));
-        lbDiccionario.setText(dic);
+        lbDiccionario.setText(listaCaminos.cadenaVisualizar());//diccionario para que se vea bonito
         lbBinario.setText(x);
+        lbPorcentaje.setText(h.porcentajeCompresion() + "%");
+        lbBytes1.setText(Integer.toString(cadenaR.length()));
+        lbBytes2.setText(Integer.toString(h.encripta(x).length()));
         //
         h.crearTxtCadena(x);
         h.crearTxtDic(dic);
-
+        h.crearTxtC(h.encripta(x));
+        //tiempo
+        TFin = System.nanoTime();
+        double dif=(double)(TFin-TInicio)*0.0000000001;
+        System.out.println("tiempo:"+dif);
+        float tiempo = (float)dif;
+        String t="";
+        lbtiempo.setText(t.valueOf(tiempo)+" s");
     }//GEN-LAST:event_btnComprimirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void rCadenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rCadenaActionPerformed
         // TODO add your handling code here:
-        CodHuffman h = new CodHuffman();
-        lbDescomprimir.setText(h.desencripta());
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_rCadenaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,16 +410,32 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FONDO;
     private javax.swing.JButton btnComprimir;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbBinario;
+    private javax.swing.JLabel lbBytes1;
+    private javax.swing.JLabel lbBytes2;
     private javax.swing.JLabel lbComp;
     private javax.swing.JLabel lbDescomprimir;
     private javax.swing.JLabel lbDiccionario;
+    private javax.swing.JLabel lbPorcentaje;
+    private javax.swing.JLabel lbT2;
+    private javax.swing.JLabel lbTdes;
+    private javax.swing.JLabel lbtiempo;
     private javax.swing.JTextField rCadena;
     // End of variables declaration//GEN-END:variables
 }

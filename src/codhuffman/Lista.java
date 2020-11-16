@@ -61,6 +61,17 @@ public class Lista {
         dic = dic + ";";
         return dic;
     }
+    public String cadenaVisualizar()
+    {
+        String dic = "";
+        Nodo aux = inicio;
+        while (aux != null) {
+            dic = dic + aux.getDato() + ":"+aux.getCamino() + " ";
+            aux = aux.getSiguiente();
+        }
+        dic = dic;
+        return dic;
+    }
 
     public void insertarFinal(char d) {
         Nodo nuevo = new Nodo(d);
